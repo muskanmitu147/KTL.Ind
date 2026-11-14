@@ -6,7 +6,6 @@ hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });
 
-// Close menu when a link is clicked
 document.querySelectorAll('.nav-menu a').forEach(link => {
     link.addEventListener('click', () => {
         navMenu.classList.remove('active');
@@ -45,12 +44,18 @@ const formNote = document.getElementById('formNote');
 contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const name = document.getElementById('name').value;
-    formNote.textContent = `Thank you, ${name}! Your message has been sent. We will contact you soon.`;
+    formNote.textContent = 'Thank you, ' + name + '! Your message has been sent. We will contact you soon.';
     contactForm.reset();
     setTimeout(() => {
         formNote.textContent = '';
     }, 5000);
 });
+
+// ===== FAQ Toggle =====
+function toggleFAQ(btn) {
+    const item = btn.parentElement;
+    item.classList.toggle('active');
+}
 
 // ===== Scroll Reveal Animation =====
 const observerOptions = {
@@ -67,7 +72,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-document.querySelectorAll('.product-card, .why-card, .feature-card, .contact-item, .stat-item').forEach(el => {
+document.querySelectorAll('.product-card, .why-card, .feature-card, .contact-item, .stat-item, .gallery-item, .review-card, .cert-card, .order-step, .blog-card, .faq-item, .pricing-table-wrapper').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
