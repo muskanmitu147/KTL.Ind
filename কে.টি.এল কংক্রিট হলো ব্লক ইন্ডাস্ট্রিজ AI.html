@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>কে.টি.এল কংক্রিট হলো ব্লক ইন্ডাস্ট্রিজ AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f1f2f3;--surface:#fff;--ink:#1d2830;--muted:#5d6a73;--line:#d3d7da;--brand:#b4462b;--brand-ink:#fff;--block:#c9ccce;--core:#9da3a7;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141b20;--surface:#1d272d;--ink:#eef0f1;--muted:#a1adb4;--line:#33414a;--brand:#e0674a;--brand-ink:#141b20;--block:#3a474f;--core:#252f35}}
+:root[data-theme="dark"]{--bg:#141b20;--surface:#1d272d;--ink:#eef0f1;--muted:#a1adb4;--line:#33414a;--brand:#e0674a;--brand-ink:#141b20;--block:#3a474f;--core:#252f35}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hind Siliguri",system-ui,sans-serif;line-height:1.6}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px}
+.hero{background:var(--ink);color:var(--bg);padding:34px 0 0;overflow:hidden}
+.hero h1{font-size:clamp(26px,6vw,40px);line-height:1.25;margin:0 0 8px;font-weight:700}
+.hero p{margin:0 0 22px;opacity:.85;max-width:52ch}
+.wall{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;margin:0 -18px;padding:0 0 0}
+.wall i{display:block;aspect-ratio:2/1;background:var(--block);position:relative;border-radius:2px}
+.wall i::before,.wall i::after{content:"";position:absolute;top:22%;bottom:22%;width:22%;background:var(--core);border-radius:1px}
+.wall i::before{left:16%}.wall i::after{right:16%}
+.wall i:nth-child(16n+9){margin-left:-6%}
+section{padding:26px 0 4px}
+h2{font-size:21px;margin:0 0 12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px}
+label{display:block;font-size:14px;color:var(--muted);margin-bottom:4px}
+input{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:9px 10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+button,.btn{font:inherit;font-weight:500;background:var(--brand);color:var(--brand-ink);border:0;border-radius:6px;padding:10px 16px;cursor:pointer;text-decoration:none;display:inline-block}
+button:focus-visible,.btn:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+.result{margin-top:14px;font-size:18px;font-weight:700}
+.note{font-size:13px;color:var(--muted);margin-top:6px}
+ul.prod{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+ul.prod li{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--brand);padding:10px 14px;border-radius:6px}
+#log{height:260px;overflow:auto;display:flex;flex-direction:column;gap:8px;margin-bottom:10px}
+.m{max-width:85%;padding:8px 12px;border-radius:10px;background:var(--bg);border:1px solid var(--line);white-space:pre-line}
+.m.u{align-self:flex-end;background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.chips button{background:var(--bg);color:var(--ink);border:1px solid var(--line);padding:5px 10px;font-size:14px}
+.row{display:flex;gap:8px}
+footer{padding:26px 0 40px;color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<h1>মেসার্স কে.টি.এল কংক্রিট হলো ব্লক ইন্ডাস্ট্রিজ</h1>
+<p>মজবুত নির্মাণের জন্য মানসম্মত কংক্রিট ব্লক। রংপুর, বাংলাদেশ।</p>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px">
+<a class="btn" href="tel:01309002394">কল করুন: 01309-002394</a>
+<a class="btn" style="background:transparent;border:1px solid currentColor;color:inherit" href="tel:01715949942">01715-949942</a>
+</div>
+<div class="wall" id="wall" aria-hidden="true"></div>
+</div></header>
+
+<main class="wrap">
+<section>
+<h2>ব্লক হিসাব ক্যালকুলেটর</h2>
+<div class="card">
+<div class="grid">
+<div><label for="area">দেয়ালের মোট ক্ষেত্রফল (বর্গফুট)</label><input id="area" type="number" min="0" value="500" inputmode="decimal"></div>
+<div><label for="bl">ব্লকের দৈর্ঘ্য (ইঞ্চি)</label><input id="bl" type="number" min="1" value="16" inputmode="decimal"></div>
+<div><label for="bh">ব্লকের উচ্চতা (ইঞ্চি)</label><input id="bh" type="number" min="1" value="8" inputmode="decimal"></div>
+<div><label for="ws">অপচয় (%)</label><input id="ws" type="number" min="0" value="5" inputmode="decimal"></div>
+</div>
+<div style="margin-top:12px"><button id="calc" type="button">হিসাব করুন</button></div>
+<div class="result" id="out" aria-live="polite">ক্ষেত্রফল দিয়ে “হিসাব করুন” চাপুন।</div>
+<div class="note">এটি আনুমানিক হিসাব। মর্টারের জোড় ও জানালা-দরজার জায়গা বাদ দিয়ে ক্ষেত্রফল দিন। ব্লকের আসল সাইজ কারখানা থেকে নিশ্চিত হয়ে নিন (১৬×৮ ইঞ্চি এখানে ধরে নেওয়া মান)।</div>
+</div>
+</section>
+
+<section>
+<h2>আমাদের ব্লক</h2>
+<ul class="prod">
+<li>Concrete Hollow Block</li><li>Solid Concrete Block</li><li>Paver Block</li><li>বিভিন্ন সাইজের কংক্রিট ব্লক</li>
+</ul>
+<div class="note">নিজস্ব কারখানায় উৎপাদিত। পাইকারি ও খুচরা বিক্রয়। রংপুর ও আশপাশের উপজেলায় সরবরাহ।</div>
+</section>
+
+<section>
+<h2>প্রশ্ন করুন (সহকারী)</h2>
+<div class="card">
+<div class="chips" id="chips"></div>
+<div id="log" aria-live="polite"></div>
+<div class="row"><input id="q" placeholder="যেমন: ঠিকানা কোথায়?" aria-label="আপনার প্রশ্ন"><button id="send" type="button">পাঠান</button></div>
+<div class="note">এই সহকারী শুধু কারখানার দেওয়া তথ্য থেকে উত্তর দেয়। দাম ও স্টক জানতে ফোন বা ইনবক্স করুন।</div>
+</div>
+</section>
+
+<section>
+<h2>কারখানা ও যোগাযোগ</h2>
+<div class="card">
+<div>কারখানা: লাহিড়ীর হাট, বদরগঞ্জ রোড, রংপুর সদর, রংপুর।</div>
+<div>ফোন: <a href="tel:01309002394">01309-002394</a>, <a href="tel:01715949942">01715-949942</a></div>
+<div>মূল্য জানতে ও অর্ডার করতে ইনবক্স করুন।</div>
+</div>
+</section>
+</main>
+<footer><div class="wrap">মেসার্স কে.টি.এল কংক্রিট হলো ব্লক ইন্ডাস্ট্রিজ, আপনার নির্মাণকাজে মানসম্মত ব্লকের নির্ভরযোগ্য ঠিকানা।</div></footer>
+
+<script>
+(function(){
+var wall=document.getElementById('wall');
+for(var i=0;i<24;i++){wall.appendChild(document.createElement('i'));}
+function bn(n){return String(n).replace(/\d/g,function(d){return '০১২৩৪৫৬৭৮৯'[d];});}
+document.getElementById('calc').onclick=function(){
+ var a=+document.getElementById('area').value,l=+document.getElementById('bl').value,h=+document.getElementById('bh').value,w=+document.getElementById('ws').value||0;
+ var out=document.getElementById('out');
+ if(!(a>0&&l>0&&h>0)){out.textContent='ক্ষেত্রফল, দৈর্ঘ্য ও উচ্চতা শূন্যের চেয়ে বেশি দিন।';return;}
+ var n=Math.ceil(a*144/(l*h)*(1+w/100));
+ out.textContent='প্রয়োজন প্রায় '+bn(n.toLocaleString('en-US'))+' টি ব্লক';
+};
+var KB=[
+ {k:['ঠিকানা','কোথায়','কারখানা','address','location','লাহিড়ী','রংপুর'],a:'কারখানা: লাহিড়ীর হাট, বদরগঞ্জ রোড, রংপুর সদর, রংপুর।'},
+ {k:['ফোন','নম্বর','নাম্বার','যোগাযোগ','call','phone','কল'],a:'যোগাযোগ: 01309-002394, 01715-949942'},
+ {k:['দাম','মূল্য','রেট','price','কত'],a:'মূল্য জানতে ফোন করুন (01309-002394, 01715-949942) অথবা ইনবক্স করুন। এখানে দাম দেওয়া নেই।'},
+ {k:['অর্ডার','order','কিনতে','কিনব'],a:'অর্ডার করতে ইনবক্স করুন বা ফোন করুন। বিভিন্ন পরিমাণে অর্ডার নেওয়া হয়।'},
+ {k:['কী ব্লক','কি ব্লক','ধরনের','ধরণের','পণ্য','hollow','হলো','solid','সলিড','paver','পেভার','সাইজ','size','product'],a:'আমাদের আছে: Concrete Hollow Block, Solid Concrete Block, Paver Block এবং বিভিন্ন সাইজের কংক্রিট ব্লক।'},
+ {k:['পাইকারি','খুচরা','wholesale','retail'],a:'পাইকারি ও খুচরা দুইভাবেই বিক্রয় হয়।'},
+ {k:['সরবরাহ','ডেলিভারি','delivery','উপজেলা','পৌঁছ'],a:'রংপুর ও আশপাশের উপজেলায় সরবরাহ করা হয়।'},
+ {k:['উৎপাদন','তৈরি','মান','quality','নিজস্ব'],a:'ব্লক আমাদের নিজস্ব কারখানায় উৎপাদিত।'},
+ {k:['হিসাব','কয়টা','কতটি','ক্যালকুলেটর','calculator'],a:'উপরের “ব্লক হিসাব ক্যালকুলেটর” ব্যবহার করে আনুমানিক ব্লক সংখ্যা জানতে পারবেন।'}
+];
+var log=document.getElementById('log'),q=document.getElementById('q');
+function add(t,u){var d=document.createElement('div');d.className='m'+(u?' u':'');d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight;}
+function ask(t){
+ t=t.trim();if(!t)return;add(t,true);
+ var s=t.toLowerCase(),r=null;
+ for(var i=0;i<KB.length&&!r;i++){for(var j=0;j<KB[i].k.length;j++){if(s.indexOf(KB[i].k[j])>-1){r=KB[i].a;break;}}}
+ add(r||'এই বিষয়ে আমার কাছে তথ্য নেই। সরাসরি ফোন করুন: 01309-002394, 01715-949942');
+}
+add('আসসালামু আলাইকুম! ব্লকের ধরন, ঠিকানা, সরবরাহ বা অর্ডার নিয়ে প্রশ্ন করুন।');
+['কী কী ব্লক আছে?','ঠিকানা কোথায়?','দাম কত?','কোথায় সরবরাহ করেন?'].forEach(function(t){
+ var b=document.createElement('button');b.type='button';b.textContent=t;b.onclick=function(){ask(t);};document.getElementById('chips').appendChild(b);
+});
+document.getElementById('send').onclick=function(){ask(q.value);q.value='';};
+q.addEventListener('keydown',function(e){if(e.key==='Enter'){ask(q.value);q.value='';}});
+})();
+</script>
+</body>
+</html>
